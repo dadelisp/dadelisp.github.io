@@ -12,22 +12,24 @@
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family: 'Inter', sans-serif; background: #f8f5f2; color: #3a2f2a; line-height: 1.6; }
 
-        /* Навигация */
+        /* НОВЫЙ НАВБАР — компактный на ПК */
         nav {
             position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
-            max-width: 820px; width: 100%;
+            max-width: 680px; width: 100%; /* ← уменьшил с 820px до 680px */
             background: rgba(255,255,255,0.94); backdrop-filter: blur(24px);
             border: 1px solid rgba(165,107,79,0.12); border-radius: 9999px;
-            padding: 14px 28px; box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-            z-index: 1000; display: flex; justify-content: center; gap: 32px; font-weight: 500;
+            padding: 12px 24px; /* ← меньше отступов */
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            z-index: 1000; display: flex; justify-content: center; gap: 24px; /* ← меньше расстояния */
+            font-weight: 500;
         }
         nav a { 
-            color: #3a2f2a; text-decoration: none; padding: 10px 26px; 
+            color: #3a2f2a; text-decoration: none; padding: 10px 22px; 
             border-radius: 9999px; transition: var(--transition); white-space: nowrap; 
         }
         nav a:hover, nav a.active { background: rgba(165,107,79,0.12); color: var(--accent); }
 
-        /* ГЕРОЙ И ОСТАЛЬНОЕ (без изменений) */
+        /* Остальной код без изменений */
         header { min-height: 100vh; background: linear-gradient(135deg, #f8f5f2 0%, #e8d5c4 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
         .hero-box { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-radius: 40px; padding: 70px 50px; max-width: 820px; box-shadow: 0 25px 60px rgba(165,107,79,0.15); }
         h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.8rem, 9vw, 7.2rem); letter-spacing: -4px; margin-bottom: 20px; }
@@ -51,7 +53,7 @@
 
         footer { background: #e8d5c4; padding: 80px 20px; text-align: center; color: #6b5a52; }
 
-        /* ==================== ИСПРАВЛЕНИЕ ДЛЯ ТЕЛЕФОНА ==================== */
+        /* Мобильная версия (ещё компактнее) */
         @media (max-width: 768px) {
             nav {
                 top: 20px;
@@ -59,23 +61,13 @@
                 gap: 12px;
                 max-width: 96%;
             }
-            nav a {
-                padding: 8px 16px;
-                font-size: 0.93rem;
-            }
+            nav a { padding: 8px 16px; font-size: 0.93rem; }
             .hero-box { padding: 50px 30px; }
         }
 
         @media (max-width: 480px) {
-            nav {
-                padding: 8px 10px;
-                gap: 8px;
-                max-width: 98%;
-            }
-            nav a {
-                padding: 7px 14px;
-                font-size: 0.89rem;
-            }
+            nav { padding: 8px 10px; gap: 8px; max-width: 98%; }
+            nav a { padding: 7px 14px; font-size: 0.89rem; }
         }
     </style>
 </head>
@@ -129,7 +121,6 @@
 </footer>
 
 <script>
-    // Анимация + скролл (без изменений)
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
