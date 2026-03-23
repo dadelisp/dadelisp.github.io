@@ -12,43 +12,98 @@
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family: 'Inter', sans-serif; background: #f8f5f2; color: #3a2f2a; line-height: 1.6; }
 
+        /* Компактный и стабильный навбар */
         nav {
-            position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
-            max-width: 680px; width: 100%;
-            background: rgba(255,255,255,0.94); backdrop-filter: blur(24px);
-            border: 1px solid rgba(165,107,79,0.12); border-radius: 9999px;
-            padding: 12px 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-            z-index: 1000; display: flex; justify-content: center; gap: 24px; font-weight: 500;
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 720px;
+            width: 92%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(165,107,79,0.15);
+            border-radius: 9999px;
+            padding: 12px 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 500;
         }
-        nav a { color: #3a2f2a; text-decoration: none; padding: 10px 22px; border-radius: 9999px; transition: var(--transition); white-space: nowrap; }
+        nav a {
+            color: #3a2f2a;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
         nav a:hover, nav a.active { background: rgba(165,107,79,0.12); color: var(--accent); }
 
-        header { min-height: 100vh; background: linear-gradient(135deg, #f8f5f2 0%, #e8d5c4 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
-        .hero-box { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-radius: 40px; padding: 70px 50px; max-width: 820px; box-shadow: 0 25px 60px rgba(165,107,79,0.15); }
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.8rem, 9vw, 7.2rem); letter-spacing: -4px; margin-bottom: 20px; }
-        header p { font-size: clamp(1.25rem, 4vw, 1.55rem); margin-bottom: 40px; opacity: 0.92; }
-        .cta { background: white; color: var(--accent); padding: 18px 62px; border-radius: 9999px; font-size: 1.18rem; font-weight: 600; text-decoration: none; display: inline-block; box-shadow: 0 15px 35px rgba(165,107,79,0.2); transition: var(--transition); }
-        .cta:hover { transform: translateY(-6px) scale(1.05); }
+        /* Герой — чистый и без дублирования */
+        header {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8f5f2 0%, #e8d5c4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero-box {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 75px 55px;
+            max-width: 820px;
+            box-shadow: 0 25px 65px rgba(165,107,79,0.18);
+        }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.8rem, 9vw, 7rem); letter-spacing: -4px; margin-bottom: 18px; }
+        header p { font-size: clamp(1.25rem, 4vw, 1.5rem); margin-bottom: 40px; opacity: 0.93; }
 
-        section { padding: 160px 20px 100px; max-width: 1200px; margin: 0 auto; opacity: 0; transform: translateY(60px); transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1); }
-        section.visible { opacity: 1; transform: translateY(0); }
+        .cta {
+            background: white;
+            color: var(--accent);
+            padding: 18px 60px;
+            border-radius: 9999px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 15px 35px rgba(165,107,79,0.2);
+            transition: var(--transition);
+        }
+        .cta:hover { transform: translateY(-5px) scale(1.04); }
+
+        section { padding: 140px 20px 100px; max-width: 1180px; margin: 0 auto; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 70px; }
 
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
-        .card { background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.07); opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); }
-        .card.visible { opacity: 1; transform: translateY(0); }
-        .card:hover { transform: translateY(-15px); }
+        .card { background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.07); transition: var(--transition); }
+        .card:hover { transform: translateY(-12px); }
         .card img { width: 100%; height: 320px; object-fit: cover; }
         .card-body { padding: 32px; text-align: center; }
-        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.85rem; color: var(--accent); }
+        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent); }
 
-        .btn { background: transparent; border: 2px solid var(--accent); color: var(--accent); padding: 14px 42px; border-radius: 9999px; font-weight: 600; margin-top: 20px; transition: var(--transition); }
-        .btn:hover { background: var(--accent); color: white; transform: scale(1.06); }
+        .btn {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 14px 40px;
+            border-radius: 9999px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+        .btn:hover { background: var(--accent); color: white; transform: scale(1.05); }
 
-        footer { background: #e8d5c4; padding: 80px 20px; text-align: center; color: #6b5a52; }
+        footer { background: #e8d5c4; padding: 70px 20px; text-align: center; color: #6b5a52; font-size: 0.95rem; }
 
+        /* Адаптация */
         @media (max-width: 768px) {
-            nav { top: 20px; padding: 10px 14px; gap: 12px; max-width: 96%; }
-            nav a { padding: 8px 16px; font-size: 0.93rem; }
+            nav { top: 18px; padding: 10px 12px; gap: 10px; width: 94%; }
+            nav a { padding: 8px 14px; font-size: 0.92rem; }
             .hero-box { padding: 50px 30px; }
         }
     </style>
@@ -103,157 +158,12 @@
 </footer>
 
 <script>
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                entry.target.querySelectorAll('.card').forEach((c,i) => setTimeout(() => c.classList.add('visible'), i*100));
-            }
-        });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('section').forEach(s => observer.observe(s));
-
+    // Только активная ссылка + плавный скролл (минимум кода — ничего не ломается)
     const links = document.querySelectorAll('nav a');
     window.addEventListener('scroll', () => {
         let current = 'home';
         document.querySelectorAll('section').forEach(sec => {
-            if (window.scrollY >= sec.offsetTop - 250) current = sec.getAttribute('id');
-        });
-        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
-    });
-
-    document.querySelectorAll('nav a, .cta').forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    function makeOrder(occasion) {
-        alert(`🎨 Отлично!\n\nВы выбрали: ${occasion}\n\nМы свяжемся с вами в течение суток.`);
-    }
-</script>
-</body>
-</html><!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlateArt • Искусство на тарелке</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root { --accent: #a56b4f; --transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8f5f2; color: #3a2f2a; line-height: 1.6; }
-
-        nav {
-            position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
-            max-width: 680px; width: 100%;
-            background: rgba(255,255,255,0.94); backdrop-filter: blur(24px);
-            border: 1px solid rgba(165,107,79,0.12); border-radius: 9999px;
-            padding: 12px 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-            z-index: 1000; display: flex; justify-content: center; gap: 24px; font-weight: 500;
-        }
-        nav a { color: #3a2f2a; text-decoration: none; padding: 10px 22px; border-radius: 9999px; transition: var(--transition); white-space: nowrap; }
-        nav a:hover, nav a.active { background: rgba(165,107,79,0.12); color: var(--accent); }
-
-        header { min-height: 100vh; background: linear-gradient(135deg, #f8f5f2 0%, #e8d5c4 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
-        .hero-box { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-radius: 40px; padding: 70px 50px; max-width: 820px; box-shadow: 0 25px 60px rgba(165,107,79,0.15); }
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.8rem, 9vw, 7.2rem); letter-spacing: -4px; margin-bottom: 20px; }
-        header p { font-size: clamp(1.25rem, 4vw, 1.55rem); margin-bottom: 40px; opacity: 0.92; }
-        .cta { background: white; color: var(--accent); padding: 18px 62px; border-radius: 9999px; font-size: 1.18rem; font-weight: 600; text-decoration: none; display: inline-block; box-shadow: 0 15px 35px rgba(165,107,79,0.2); transition: var(--transition); }
-        .cta:hover { transform: translateY(-6px) scale(1.05); }
-
-        section { padding: 160px 20px 100px; max-width: 1200px; margin: 0 auto; opacity: 0; transform: translateY(60px); transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1); }
-        section.visible { opacity: 1; transform: translateY(0); }
-
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
-        .card { background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.07); opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); }
-        .card.visible { opacity: 1; transform: translateY(0); }
-        .card:hover { transform: translateY(-15px); }
-        .card img { width: 100%; height: 320px; object-fit: cover; }
-        .card-body { padding: 32px; text-align: center; }
-        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.85rem; color: var(--accent); }
-
-        .btn { background: transparent; border: 2px solid var(--accent); color: var(--accent); padding: 14px 42px; border-radius: 9999px; font-weight: 600; margin-top: 20px; transition: var(--transition); }
-        .btn:hover { background: var(--accent); color: white; transform: scale(1.06); }
-
-        footer { background: #e8d5c4; padding: 80px 20px; text-align: center; color: #6b5a52; }
-
-        @media (max-width: 768px) {
-            nav { top: 20px; padding: 10px 14px; gap: 12px; max-width: 96%; }
-            nav a { padding: 8px 16px; font-size: 0.93rem; }
-            .hero-box { padding: 50px 30px; }
-        }
-    </style>
-</head>
-<body>
-
-<nav>
-    <a href="#home" class="active">Главная</a>
-    <a href="#about">О проекте</a>
-    <a href="#catalog">Каталог</a>
-    <a href="#order">Заказать</a>
-</nav>
-
-<header id="home">
-    <div class="hero-box">
-        <h1>PlateArt</h1>
-        <p>Искусство, которое можно съесть.<br>Ручная работа • Минимализм • Эмоции</p>
-        <a href="#order" class="cta">Заказать свою тарелку</a>
-    </div>
-</header>
-
-<section id="about">
-    <h2>О PlateArt</h2>
-    <p style="max-width:720px; margin:0 auto; text-align:center; font-size:1.3rem;">
-        Дипломный проект по визуальному дизайну еды. Мы создаём моменты, 
-        которые хочется сначала сфотографировать, а потом попробовать.
-    </p>
-</section>
-
-<section id="catalog">
-    <h2>Каталог</h2>
-    <div class="cards">
-        <div class="card"><img src="https://i.pinimg.com/736x/d5/5b/f3/d55bf3ac2d482871fe8bc9cb40895fd2.jpg" alt=""><div class="card-body"><h3>Салат «Абстракция»</h3><p>Цветовой градиент и съедобные цветы</p></div></div>
-        <div class="card"><img src="https://img.freepik.com/premium-photo/layered-healthy-fruit-smoothie_53876-149197.jpg?semt=ais_hybrid&w=740&q=80" alt=""><div class="card-body"><h3>Градиент-смузи</h3><p>Три слоя цвета и золотая пыль</p></div></div>
-        <div class="card"><img src="https://i.ytimg.com/vi/4HlfBp5QeFE/maxresdefault.jpg" alt=""><div class="card-body"><h3>Шоколадный мусс</h3><p>72% шоколад и свежие ягоды</p></div></div>
-    </div>
-</section>
-
-<section id="order">
-    <h2>Выберите повод</h2>
-    <div class="cards">
-        <div class="card"><img src="https://i.pinimg.com/originals/80/6d/2e/806d2ef5c9e202fb390cd3c70c915cc5.png?nii=t" alt=""><div class="card-body"><h3>День рождения</h3><p>Персональный торт и десерты</p><button onclick="makeOrder('День рождения')" class="btn">Выбрать</button></div></div>
-        <div class="card"><img src="https://i.pinimg.com/originals/49/44/8c/49448ca70e5b45e908667509951e612f.jpg?nii=t" alt=""><div class="card-body"><h3>Свадьба</h3><p>Элегантный свадебный торт</p><button onclick="makeOrder('Свадьба')" class="btn">Выбрать</button></div></div>
-        <div class="card"><img src="https://chaudeau.ru/images/Post/Post_Skype_Picture_2019_05_13T13_32_06_715Z.jpeg" alt=""><div class="card-body"><h3>Выпускной</h3><p>Фотозона из десертов</p><button onclick="makeOrder('Выпускной')" class="btn">Выбрать</button></div></div>
-        <div class="card"><img src="https://img.freepik.com/free-photo/fresh-bouquet-sweet-love-wedding-celebration-with-cake-generated-by-ai_188544-19746.jpg?semt=ais_hybrid&w=740" alt=""><div class="card-body"><h3>Корпоратив</h3><p>Фуршет в стиле компании</p><button onclick="makeOrder('Корпоратив')" class="btn">Выбрать</button></div></div>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 PlateArt • Ручная работа с душой</p>
-    <p>designfood.project@gmail.com</p>
-</footer>
-
-<script>
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                entry.target.querySelectorAll('.card').forEach((c,i) => setTimeout(() => c.classList.add('visible'), i*100));
-            }
-        });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('section').forEach(s => observer.observe(s));
-
-    const links = document.querySelectorAll('nav a');
-    window.addEventListener('scroll', () => {
-        let current = 'home';
-        document.querySelectorAll('section').forEach(sec => {
-            if (window.scrollY >= sec.offsetTop - 250) current = sec.getAttribute('id');
+            if (window.scrollY >= sec.offsetTop - 280) current = sec.getAttribute('id');
         });
         links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
     });
