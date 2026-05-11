@@ -17,7 +17,6 @@
         }
 
         * { margin:0; padding:0; box-sizing:border-box; outline: none; }
-        
         html { scroll-behavior: smooth; }
 
         body { 
@@ -33,13 +32,14 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 30px 50px;
+            padding: 25px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(253, 252, 251, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(253, 252, 251, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
         }
 
         .logo {
@@ -55,12 +55,12 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             font-weight: 600;
             transition: var(--transition);
-            opacity: 0.6;
+            opacity: 0.5;
         }
         .nav-links a:hover { opacity: 1; color: var(--accent); }
 
@@ -70,37 +70,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             background: radial-gradient(circle at center, #f5f0ed 0%, #fdfcfb 100%);
         }
 
         .hero-content { text-align: center; max-width: 900px; padding: 0 20px; }
-        
         .hero-content h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: clamp(4rem, 12vw, 10rem); 
+            font-size: clamp(4rem, 12vw, 9rem); 
             font-weight: 400;
-            line-height: 1;
-            margin-bottom: 20px;
+            line-height: 0.9;
+            margin-bottom: 25px;
             font-style: italic;
         }
-
         .hero-content p {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 50px;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
         /* Кнопки */
         .main-btn {
             display: inline-block;
-            padding: 20px 50px;
+            padding: 22px 60px;
             background: var(--text);
             color: #fff;
             text-decoration: none;
-            border-radius: 0;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -109,7 +105,6 @@
             border: 1px solid var(--text);
             cursor: pointer;
         }
-
         .main-btn:hover {
             background: transparent;
             color: var(--text);
@@ -118,157 +113,75 @@
 
         /* Секции */
         section { padding: 120px 50px; max-width: 1400px; margin: 0 auto; }
-        
-        .section-header {
-            margin-bottom: 80px;
-            text-align: center;
-        }
+        .section-header { margin-bottom: 80px; text-align: center; }
+        .section-header span { text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; opacity: 0.5; display: block; margin-bottom: 10px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; }
 
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 400;
-            margin-bottom: 10px;
-        }
-
-        /* Галерея/Каталог */
-        .catalog-grid {
+        /* Сетки */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
         .item-card {
-            position: relative;
-            overflow: hidden;
             background: var(--soft-bg);
-            padding: 15px;
+            padding: 20px;
             transition: var(--transition);
+            text-align: left;
         }
-
-        .item-card:hover { transform: translateY(-10px); }
+        .item-card:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
 
         .item-card img {
             width: 100%;
-            height: 450px;
+            height: 400px;
             object-fit: cover;
-            filter: grayscale(20%);
+            margin-bottom: 25px;
+            filter: sepia(20%);
+        }
+
+        .item-info span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 700; }
+        .item-info h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; margin: 5px 0 10px; }
+        .item-info p { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; }
+
+        .card-btn {
+            background: transparent;
+            border: 1px solid var(--text);
+            padding: 12px 30px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            cursor: pointer;
             transition: var(--transition);
         }
-
-        .item-card:hover img { filter: grayscale(0%); }
-
-        .item-info {
-            padding: 25px 10px 10px;
-            text-align: left;
-        }
-
-        .item-info span {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .item-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 400;
-        }
+        .card-btn:hover { background: var(--text); color: #fff; }
 
         /* Модальное окно */
         .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(44, 38, 36, 0.95);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            backdrop-filter: blur(15px);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(44, 38, 36, 0.98);
+            display: none; justify-content: center; align-items: center;
+            z-index: 2000; backdrop-filter: blur(10px);
         }
-
         .modal-content {
-            background: var(--bg);
-            width: 90%;
-            max-width: 500px;
-            padding: 60px;
+            background: var(--bg); width: 95%; max-width: 500px; padding: 60px;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text);
-            line-height: 1;
-        }
-
-        .modal h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
+        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 2rem; cursor: pointer; }
 
         .form-group { margin-bottom: 25px; }
-        
-        label {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            opacity: 0.6;
-        }
-
+        label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 8px; opacity: 0.5; }
         input, textarea {
-            width: 100%;
-            padding: 15px 0;
-            border: none;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            background: transparent;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: var(--transition);
+            width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.1);
+            background: transparent; font-family: inherit; font-size: 1rem;
         }
+        input:focus, textarea:focus { border-bottom-color: var(--accent); }
+        textarea { height: 70px; resize: none; }
+        .hint { font-size: 0.7rem; margin-top: 10px; color: var(--accent); font-style: italic; }
 
-        input:focus, textarea:focus {
-            border-bottom-color: var(--accent);
-        }
+        footer { padding: 100px 50px; background: var(--soft-bg); text-align: center; }
 
-        textarea { height: 80px; resize: none; }
-
-        .hint {
-            font-size: 0.75rem;
-            margin-top: 5px;
-            color: var(--accent);
-            font-style: italic;
-        }
-
-        footer {
-            padding: 100px 50px;
-            background: var(--soft-bg);
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* Адаптив */
         @media (max-width: 768px) {
             nav { padding: 20px; }
             .nav-links { display: none; }
@@ -282,92 +195,130 @@
 <nav>
     <a href="#" class="logo">PlateArt</a>
     <div class="nav-links">
-        <a href="#catalog">Примеры</a>
-        <a href="#about">О нас</a>
+        <a href="#examples">Примеры</a>
+        <a href="#occasions">Поводы</a>
         <a href="javascript:void(0)" onclick="openModal()">Заказать</a>
     </div>
 </nav>
 
 <header>
     <div class="hero-content">
-        <p>Hand-made • Minimalism • Emotions</p>
+        <p>Minimalism • High Design • Emotions</p>
         <h1>PlateArt</h1>
-        <button class="main-btn" onclick="openModal()">Заказать проект</button>
+        <button class="main-btn" onclick="openModal()">Создать момент</button>
     </div>
 </header>
 
-<section id="catalog">
+<section id="examples">
     <div class="section-header">
-        <span>Curated Examples</span>
-        <h2>Каталог идей</h2>
+        <span>Artistic Catalog</span>
+        <h2>Примеры работ</h2>
     </div>
-
-    <div class="catalog-grid">
+    <div class="grid">
         <div class="item-card">
-            <img src="https://i.pinimg.com/736x/d5/5b/f3/d55bf3ac2d482871fe8bc9cb40895fd2.jpg" alt="Example 1">
+            <img src="https://i.pinimg.com/736x/d5/5b/f3/d55bf3ac2d482871fe8bc9cb40895fd2.jpg" alt="">
             <div class="item-info">
-                <span>Пример №1</span>
+                <span>Экспонат №1</span>
                 <h3>Салат «Абстракция»</h3>
+                <p>Цветовой градиент и съедобные цветы. Блюдо, которое меняет представление о подаче.</p>
             </div>
         </div>
         <div class="item-card">
-            <img src="https://img.freepik.com/premium-photo/layered-healthy-fruit-smoothie_53876-149197.jpg?semt=ais_hybrid&w=740&q=80" alt="Example 2">
+            <img src="https://img.freepik.com/premium-photo/layered-healthy-fruit-smoothie_53876-149197.jpg?semt=ais_hybrid&w=740&q=80" alt="">
             <div class="item-info">
-                <span>Пример №2</span>
+                <span>Экспонат №2</span>
                 <h3>Градиент-смузи</h3>
+                <p>Три слоя натурального цвета и легкое напыление золотой пыли.</p>
             </div>
         </div>
         <div class="item-card">
-            <img src="https://i.ytimg.com/vi/4HlfBp5QeFE/maxresdefault.jpg" alt="Example 3">
+            <img src="https://i.ytimg.com/vi/4HlfBp5QeFE/maxresdefault.jpg" alt="">
             <div class="item-info">
-                <span>Пример №3</span>
+                <span>Экспонат №3</span>
                 <h3>Шоколадный мусс</h3>
+                <p>72% темный шоколад, деликатная текстура и свежие лесные ягоды.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="about" style="background: #fff; text-align: center;">
-    <div style="max-width: 800px; margin: 0 auto;">
-        <h2 style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 30px;">Искусство на тарелке</h2>
-        <p style="font-size: 1.1rem; opacity: 0.8;">Мы верим, что еда — это холст. Наши работы созданы для тех, кто ценит эстетику выше калорий и ищет вдохновение в каждом кусочке.PlateArt — это индивидуальный подход к каждому событию.</p>
+<section id="occasions" style="background: #fff;">
+    <div class="section-header">
+        <span>Choose your occasion</span>
+        <h2>Выберите повод</h2>
+    </div>
+    <div class="grid">
+        <div class="item-card">
+            <img src="https://i.pinimg.com/originals/80/6d/2e/806d2ef5c9e202fb390cd3c70c915cc5.png?nii=t" alt="">
+            <div class="item-info">
+                <h3>День рождения</h3>
+                <p>Персональный торт и сет десертов в едином художественном стиле.</p>
+                <button class="card-btn" onclick="openModal('День рождения')">Выбрать</button>
+            </div>
+        </div>
+        <div class="item-card">
+            <img src="https://i.pinimg.com/originals/49/44/8c/49448ca70e5b45e908667509951e612f.jpg?nii=t" alt="">
+            <div class="item-info">
+                <h3>Свадьба</h3>
+                <p>Элегантные формы и минималистичный декор для самого важного дня.</p>
+                <button class="card-btn" onclick="openModal('Свадьба')">Выбрать</button>
+            </div>
+        </div>
+        <div class="item-card">
+            <img src="https://chaudeau.ru/images/Post/Post_Skype_Picture_2019_05_13T13_32_06_715Z.jpeg" alt="">
+            <div class="item-info">
+                <h3>Выпускной</h3>
+                <p>Креативная фотозона из десертов, которая взорвет ваши соцсети.</p>
+                <button class="card-btn" onclick="openModal('Выпускной')">Выбрать</button>
+            </div>
+        </div>
+        <div class="item-card">
+            <img src="https://img.freepik.com/free-photo/fresh-bouquet-sweet-love-wedding-celebration-with-cake-generated-by-ai_188544-19746.jpg?semt=ais_hybrid&w=740" alt="">
+            <div class="item-info">
+                <h3>Корпоратив</h3>
+                <p>Фуршет в стиле вашей компании: от цветовой гаммы до концепции.</p>
+                <button class="card-btn" onclick="openModal('Корпоратив')">Выбрать</button>
+            </div>
+        </div>
     </div>
 </section>
 
 <div class="modal" id="orderModal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
-        <h2>Заказать</h2>
+        <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; text-align: center; margin-bottom: 30px;">Заказать</h2>
         <form id="tgForm">
             <div class="form-group">
-                <label>Ваш номер телефона</label>
+                <label>Телефон</label>
                 <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
             </div>
             <div class="form-group">
-                <label>Ваш Telegram (Username)</label>
+                <label>Telegram Username</label>
                 <input type="text" id="tg_user" placeholder="@username" required>
             </div>
             <div class="form-group">
-                <label>Что мы можем для вас создать?</label>
-                <textarea id="message" placeholder="Опишите ваши пожелания..."></textarea>
-                <p class="hint">Подсказка: вы можете указать № примера из каталога, на который нам стоит опираться.</p>
+                <label>Ваши пожелания</label>
+                <textarea id="message" placeholder="Напишите, что вы хотите..."></textarea>
+                <p class="hint">Можно указать № примера или выбранный повод.</p>
             </div>
-            <button type="submit" class="main-btn" style="width: 100%;">Отправить заявку</button>
+            <button type="submit" class="main-btn" style="width: 100%;">Отправить в PlateArt</button>
         </form>
     </div>
 </div>
 
 <footer>
-    <span class="footer-logo">PlateArt</span>
-    <p>© 2026 PlateArt • Сделано с любовью к искусству</p>
-    <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.5;">@dkdvccz • @PlateArt_bot</p>
+    <span class="logo" style="font-size: 2.5rem; display: block; margin-bottom: 20px;">PlateArt</span>
+    <p>© 2026 PlateArt • Эстетика в каждой детали</p>
+    <p style="margin-top: 15px; font-size: 0.7rem; opacity: 0.4;">@dkdvccz • @PlateArt_bot</p>
 </footer>
 
 <script>
-    // Модальное окно
-    function openModal() {
+    function openModal(occasion = '') {
         document.getElementById('orderModal').style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        if(occasion) {
+            document.getElementById('message').value = `Хочу заказать: ${occasion}. `;
+        }
     }
 
     function closeModal() {
@@ -375,55 +326,32 @@
         document.body.style.overflow = 'auto';
     }
 
-    // Закрытие при клике вне контента
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('orderModal')) {
-            closeModal();
-        }
+    window.onclick = function(e) {
+        if (e.target == document.getElementById('orderModal')) closeModal();
     }
 
-    // Отправка в Telegram
     const botToken = '8587740836:AAFMsVvHc_rghfI8mw037CKM9ZfHepaP0wE';
-    const chatId = '1607597619'; // Ваш ID
+    const chatId = '1607597619';
 
     document.getElementById('tgForm').addEventListener('submit', function(e) {
         e.preventDefault();
-
         const phone = document.getElementById('phone').value;
         const tgUser = document.getElementById('tg_user').value;
         const message = document.getElementById('message').value;
 
-        const text = `
-🎨 *НОВЫЙ ЗАКАЗ PLATEART*
---------------------------
-📞 *Телефон:* ${phone}
-✈️ *Telegram:* ${tgUser}
-📝 *Сообщение:* ${message || 'Не указано'}
-        `;
+        const text = `🎨 *НОВЫЙ ЗАКАЗ*\n----------\n📞 *Тел:* ${phone}\n✈️ *Юз:* ${tgUser}\n📝 *Инфо:* ${message}`;
 
-        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-        fetch(url, {
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: text,
-                parse_mode: 'Markdown'
-            })
+            body: JSON.stringify({ chat_id: chatId, text: text, parse_mode: 'Markdown' })
         })
-        .then(response => {
-            if(response.ok) {
-                alert('✨ Заявка успешно отправлена! Мы скоро с вами свяжемся.');
+        .then(res => {
+            if(res.ok) {
+                alert('✨ Заявка улетела! Скоро свяжемся.');
                 closeModal();
                 this.reset();
-            } else {
-                alert('Ошибка при отправке. Пожалуйста, попробуйте позже.');
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Произошла ошибка соединения.');
         });
     });
 </script>
