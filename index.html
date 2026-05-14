@@ -129,6 +129,8 @@
             padding: 20px;
             transition: var(--transition);
             text-align: left;
+            display: flex;
+            flex-direction: column;
         }
         .item-card:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
 
@@ -137,12 +139,13 @@
             height: 400px;
             object-fit: cover;
             margin-bottom: 25px;
-            filter: sepia(20%);
+            filter: sepia(10%);
         }
 
+        .item-info { flex-grow: 1; display: flex; flex-direction: column; }
         .item-info span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 700; }
         .item-info h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; margin: 5px 0 10px; }
-        .item-info p { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; }
+        .item-info p { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; flex-grow: 1; }
 
         .card-btn {
             background: transparent;
@@ -154,6 +157,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
+            width: fit-content;
         }
         .card-btn:hover { background: var(--text); color: #fff; }
 
@@ -216,7 +220,7 @@
     </div>
     <div class="grid">
         <div class="item-card">
-            <img src="https://i.pinimg.com/736x/d5/5b/f3/d55bf3ac2d482871fe8bc9cb40895fd2.jpg" alt="">
+            <img src="https://i.pinimg.com/736x/d5/5b/f3/d55bf3ac2d482871fe8bc9cb40895fd2.jpg" alt="Салат">
             <div class="item-info">
                 <span>Экспонат №1</span>
                 <h3>Салат «Абстракция»</h3>
@@ -224,7 +228,7 @@
             </div>
         </div>
         <div class="item-card">
-            <img src="https://img.freepik.com/premium-photo/layered-healthy-fruit-smoothie_53876-149197.jpg?semt=ais_hybrid&w=740&q=80" alt="">
+            <img src="https://img.freepik.com/premium-photo/layered-healthy-fruit-smoothie_53876-149197.jpg?semt=ais_hybrid&w=740&q=80" alt="Смузи">
             <div class="item-info">
                 <span>Экспонат №2</span>
                 <h3>Градиент-смузи</h3>
@@ -232,7 +236,7 @@
             </div>
         </div>
         <div class="item-card">
-            <img src="https://i.ytimg.com/vi/4HlfBp5QeFE/maxresdefault.jpg" alt="">
+            <img src="https://i.ytimg.com/vi/4HlfBp5QeFE/maxresdefault.jpg" alt="Мусс">
             <div class="item-info">
                 <span>Экспонат №3</span>
                 <h3>Шоколадный мусс</h3>
@@ -247,39 +251,55 @@
         <span>Choose your occasion</span>
         <h2>Выберите повод</h2>
     </div>
+    
+    <!-- Обновленная сетка с нужными картинками -->
     <div class="grid">
+        
         <div class="item-card">
-            <img src="https://i.pinimg.com/originals/80/6d/2e/806d2ef5c9e202fb390cd3c70c915cc5.png?nii=t" alt="">
-            <div class="item-info">
-                <h3>День рождения</h3>
-                <p>Персональный торт и сет десертов в едином художественном стиле.</p>
-                <button class="card-btn" onclick="openModal('День рождения')">Выбрать</button>
-            </div>
-        </div>
-        <div class="item-card">
-            <img src="https://i.pinimg.com/originals/49/44/8c/49448ca70e5b45e908667509951e612f.jpg?nii=t" alt="">
+            <img src="свадьба.jpg" alt="Свадьба">
             <div class="item-info">
                 <h3>Свадьба</h3>
                 <p>Элегантные формы и минималистичный декор для самого важного дня.</p>
                 <button class="card-btn" onclick="openModal('Свадьба')">Выбрать</button>
             </div>
         </div>
+
         <div class="item-card">
-            <img src="https://chaudeau.ru/images/Post/Post_Skype_Picture_2019_05_13T13_32_06_715Z.jpeg" alt="">
+            <img src="выпускной.jpg" alt="Выпускной">
             <div class="item-info">
                 <h3>Выпускной</h3>
                 <p>Креативная фотозона из десертов, которая взорвет ваши соцсети.</p>
                 <button class="card-btn" onclick="openModal('Выпускной')">Выбрать</button>
             </div>
         </div>
+
         <div class="item-card">
-            <img src="https://img.freepik.com/free-photo/fresh-bouquet-sweet-love-wedding-celebration-with-cake-generated-by-ai_188544-19746.jpg?semt=ais_hybrid&w=740" alt="">
+            <img src="др мальчик.jpg" alt="ДР Мальчик">
             <div class="item-info">
-                <h3>Корпоратив</h3>
-                <p>Фуршет в стиле вашей компании: от цветовой гаммы до концепции.</p>
-                <button class="card-btn" onclick="openModal('Корпоратив')">Выбрать</button>
+                <h3>День рождения (Мальчик)</h3>
+                <p>Персональный торт и сет десертов в стильном оформлении.</p>
+                <button class="card-btn" onclick="openModal('День рождения (Мальчик)')">Выбрать</button>
             </div>
         </div>
+
+        <div class="item-card">
+            <img src="др девочька.jpg" alt="ДР Девочка">
+            <div class="item-info">
+                <h3>День рождения (Девочка)</h3>
+                <p>Нежные оттенки и изящные формы для особенного праздника.</p>
+                <button class="card-btn" onclick="openModal('День рождения (Девочка)')">Выбрать</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <img src="без повода.jpg" alt="Без повода">
+            <div class="item-info">
+                <h3>Без повода</h3>
+                <p>Повседневная эстетика для тех, кто ценит красоту в мелочах.</p>
+                <button class="card-btn" onclick="openModal('Без повода')">Выбрать</button>
+            </div>
+        </div>
+
     </div>
 </section>
 
